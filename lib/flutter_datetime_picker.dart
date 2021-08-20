@@ -405,27 +405,6 @@ class _DatePickerState extends State<_DatePickerComponent> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-              child: widget.pickerModel.layoutProportions()[0] > 0
-                  ? _renderColumnView(
-                      ValueKey(widget.pickerModel.currentLeftIndex()),
-                      theme,
-                      widget.pickerModel.leftStringAtIndex,
-                      leftScrollCtrl,
-                      widget.pickerModel.layoutProportions()[0], (index) {
-                      widget.pickerModel.setLeftIndex(index);
-                    }, (index) {
-                      setState(() {
-                        refreshScrollOffset();
-                        _notifyDateChanged();
-                      });
-                    })
-                  : null,
-            ),
-            Text(
-              widget.pickerModel.leftDivider(),
-              style: theme.itemStyle,
-            ),
-            Container(
               child: widget.pickerModel.layoutProportions()[1] > 0
                   ? _renderColumnView(
                       ValueKey(widget.pickerModel.currentLeftIndex()),
@@ -456,6 +435,27 @@ class _DatePickerState extends State<_DatePickerComponent> {
                       rightScrollCtrl,
                       widget.pickerModel.layoutProportions()[2], (index) {
                       widget.pickerModel.setRightIndex(index);
+                    }, (index) {
+                      setState(() {
+                        refreshScrollOffset();
+                        _notifyDateChanged();
+                      });
+                    })
+                  : null,
+            ),
+            Text(
+              widget.pickerModel.leftDivider(),
+              style: theme.itemStyle,
+            ),
+            Container(
+              child: widget.pickerModel.layoutProportions()[0] > 0
+                  ? _renderColumnView(
+                      ValueKey(widget.pickerModel.currentLeftIndex()),
+                      theme,
+                      widget.pickerModel.leftStringAtIndex,
+                      leftScrollCtrl,
+                      widget.pickerModel.layoutProportions()[0], (index) {
+                      widget.pickerModel.setLeftIndex(index);
                     }, (index) {
                       setState(() {
                         refreshScrollOffset();
