@@ -405,14 +405,14 @@ class _DatePickerState extends State<_DatePickerComponent> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
-              child: widget.pickerModel.layoutProportions()[1] > 0
+              child: widget.pickerModel.layoutProportions()[0] > 0
                   ? _renderColumnView(
                       ValueKey(widget.pickerModel.currentLeftIndex()),
                       theme,
-                      widget.pickerModel.middleStringAtIndex,
-                      middleScrollCtrl,
-                      widget.pickerModel.layoutProportions()[1], (index) {
-                      widget.pickerModel.setMiddleIndex(index);
+                      widget.pickerModel.leftStringAtIndex,
+                      leftScrollCtrl,
+                      widget.pickerModel.layoutProportions()[0], (index) {
+                      widget.pickerModel.setLeftIndex(index);
                     }, (index) {
                       setState(() {
                         refreshScrollOffset();
@@ -447,15 +447,18 @@ class _DatePickerState extends State<_DatePickerComponent> {
               widget.pickerModel.leftDivider(),
               style: theme.itemStyle,
             ),
+            
+
+
             Container(
-              child: widget.pickerModel.layoutProportions()[0] > 0
+              child: widget.pickerModel.layoutProportions()[1] > 0
                   ? _renderColumnView(
                       ValueKey(widget.pickerModel.currentLeftIndex()),
                       theme,
-                      widget.pickerModel.leftStringAtIndex,
-                      leftScrollCtrl,
-                      widget.pickerModel.layoutProportions()[0], (index) {
-                      widget.pickerModel.setLeftIndex(index);
+                      widget.pickerModel.middleStringAtIndex,
+                      middleScrollCtrl,
+                      widget.pickerModel.layoutProportions()[1], (index) {
+                      widget.pickerModel.setMiddleIndex(index);
                     }, (index) {
                       setState(() {
                         refreshScrollOffset();
