@@ -174,13 +174,13 @@ class HomePage extends StatelessWidget {
                 )),
             TextButton(
                 onPressed: () {
-                  DatePicker.showDateTimePicker(context, showTitleActions: true,
-                      onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
-                  }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
+                  DatePicker.showDatePicker(context,
+                      minTime: DateTime(1900),
+                      maxTime: DateTime.now(),
+                      locale: LocaleType.ru,
+                      currentTime: DateTime.now(),
+                      onConfirm: (x) {},
+                      theme: DatePickerTheme());
                 },
                 child: Text(
                   'show date time picker (English-America)',
